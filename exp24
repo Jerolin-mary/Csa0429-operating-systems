@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    FILE *fp;
+    char line[200], keyword[50];
+
+    fp = fopen("log2026.txt", "r");
+
+    printf("Enter keyword to search: ");
+    scanf("%s", keyword);
+
+    while(fgets(line, sizeof(line), fp)) {
+        if(strstr(line, keyword))
+            printf("%s", line);
+    }
+
+    fclose(fp);
+    return 0;
+}
